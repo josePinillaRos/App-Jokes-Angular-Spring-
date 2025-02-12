@@ -1,0 +1,28 @@
+<h2>Editar Categoría</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<form (ngSubmit)="updateCategory()">
+  <div class="mb-3">
+    <label for="categoryName" class="form-label">Nombre de la Categoría</label>
+    <input
+      type="text"
+      id="categoryName"
+      [(ngModel)]="categoryForm.name"
+      name="name"
+      class="form-control"
+      [class.is-invalid]="!categoryForm.name.trim() && errorMsg"
+      required
+    />
+    <div *ngIf="!categoryForm.name.trim() && errorMsg" class="invalid-feedback">
+      El nombre de la categoría no puede estar vacío.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+  <button type="button" class="btn btn-secondary" [routerLink]="['/categories']">
+    Cancelar
+  </button>
+</form>

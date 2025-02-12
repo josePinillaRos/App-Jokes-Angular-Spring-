@@ -1,0 +1,21 @@
+
+h2 {
+font-size: 2rem;
+color: #333;
+}
+
+.form-label {
+color: #555;
+}
+
+.form-select, .form-control {
+border-radius: 5px;
+}
+
+.btn {
+font-size: 1rem;
+}
+
+.shadow-sm {
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

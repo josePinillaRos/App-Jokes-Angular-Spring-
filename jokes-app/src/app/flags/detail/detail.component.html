@@ -1,0 +1,14 @@
+<div *ngIf="errorMsg" class="alert alert-danger">
+    {{ errorMsg }}
+  </div>
+  
+  <div *ngIf="flag">
+    <h2>Detalle de la Flag #{{ flag.id }}</h2>
+    <p><strong>Nombre:</strong> {{ flag.name }}</p>
+  
+    <!-- Si tu FlagsDTO tuviera más campos, agrégalos aquí -->
+    <!-- Ejemplo: Jokes asociados, etc. -->
+  
+    <button class="btn btn-secondary" (click)="goBack()">Volver</button>
+  </div>
+  

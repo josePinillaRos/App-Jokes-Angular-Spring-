@@ -1,0 +1,30 @@
+<h2>Listado de Flags</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<button [routerLink]="['/flags/create']" class="btn btn-primary">
+  Crear Nueva Flag
+</button>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of flags">
+      <td>{{ f.id }}</td>
+      <td>{{ f.name }}</td>
+      <td>
+        <a class="btn btn-info btn-sm" [routerLink]="['/flags/detail', f.id]">Ver</a>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/flags/edit', f.id]">Editar</a>
+        <button class="btn btn-danger btn-sm" (click)="deleteFlag(f.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

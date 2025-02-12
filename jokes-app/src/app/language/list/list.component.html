@@ -1,0 +1,33 @@
+<h2>Listado de Idiomas</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<button [routerLink]="['/languages/create']" class="btn btn-primary">
+  Crear Nuevo Idioma
+</button>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Código</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let language of languages">
+      <td>{{ language.id }}</td>
+      <td>{{ language.name }}</td>
+      <td>{{ language.code }}</td>
+      <td>
+        <a class="btn btn-info btn-sm" [routerLink]="['/languages/detail', language.id]">Ver</a>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/languages/edit', language.id]">Editar</a>
+        <button class="btn btn-danger btn-sm" (click)="deleteLanguageWithJokes(language.id)">Eliminar con chistes</button>
+        <button class="btn btn-danger btn-sm" (click)="removeLanguageFromJokes(language.id)">Eliminar sin chistes</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

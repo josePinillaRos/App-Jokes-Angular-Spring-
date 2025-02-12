@@ -1,0 +1,69 @@
+/* list.component.css */
+
+/* Ajustes globales (si no los tienes en styles.css) */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+  margin: 0;
+  padding: 0;
+}
+
+/* Título */
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Botones y .btn clases se heredan de Bootstrap */
+
+/* Card layout */
+.card {
+  max-width: 300px; /* Ajusta el ancho máximo de las tarjetas */
+  margin: 0 auto; /* Centra las tarjetas dentro de la columna */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+}
+
+/* Alineación del botón activo en la paginación */
+.btn.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}
+
+/* Ajustes para el footer de la card */
+.card-footer {
+  background-color: #ffffff; 
+  border-top: 1px solid #dee2e6;
+}
+
+.card-footer .btn {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+
+/* Espaciado entre filas */
+.row {
+  row-gap: 20px;
+}

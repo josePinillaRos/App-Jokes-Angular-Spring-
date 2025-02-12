@@ -1,0 +1,27 @@
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<div *ngIf="joke" class="detail-container">
+  <div class="detail-header">
+    <h2>Detalle del Chiste #{{ joke.id }}</h2>
+  </div>
+  <div class="detail-content">
+    <p><strong>Categoría:</strong> {{ joke.categoryName || 'N/A' }}</p>
+    <p><strong>Idioma:</strong> {{ joke.languageName || 'N/A' }}</p>
+    <p><strong>Tipo:</strong> {{ joke.typeName || 'N/A' }}</p>
+    <p><strong>Text1:</strong> {{ joke.text1 }}</p>
+    <!-- Mostrar Text2 solo si no es null, vacío o la cadena "null" -->
+    <p *ngIf="joke.text2 && joke.text2.trim() !== '' && joke.text2 !== 'null'">
+      <strong>Text2:</strong> {{ joke.text2 }}
+    </p>
+    <!-- Mostrar lista de Flags -->
+    <div *ngIf="joke?.flagsNames && joke.flagsNames.length > 0">
+      <p><strong>Flags Asociados:</strong></p>
+      <ul>
+        <li *ngFor="let flag of joke.flagsNames">{{ flag }}</li>
+      </ul>
+    </div>
+  </div>
+  <button class="back-button" (click)="goBack()">Volver</button>
+</div>

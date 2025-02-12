@@ -1,0 +1,17 @@
+<h2>Detalles de la Categoría</h2>
+
+<!-- Mostrar mensaje de error si ocurre -->
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<!-- Mostrar detalles si la categoría está cargada -->
+<div *ngIf="category" class="detail-container">
+  <div class="detail-header">
+    <h3>Categoría #{{ category.id }}</h3>
+  </div>
+  <div class="detail-content">
+    <p><strong>Nombre:</strong> {{ category.name }}</p>
+  </div>
+  <button class="btn btn-primary" (click)="goBack()">Volver</button>
+</div>

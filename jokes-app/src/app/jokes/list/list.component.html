@@ -1,0 +1,91 @@
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<h2 class="text-center my-3">Listado de Jokes</h2>
+
+<!-- Botón para crear nuevo -->
+<div class="text-center mb-3">
+  <button [routerLink]="['/jokes/create']" class="btn btn-primary">
+    Crear Nuevo
+  </button>
+</div>
+
+<!-- Grid de cards paginado -->
+<div class="row row-cols-1 row-cols-md-5 g-3 mb-4">
+  <div class="col" *ngFor="let joke of paginatedJokes">
+    <div class="card h-100">
+      <div class="card-body">
+        <h6 class="card-title">
+          <strong>Chiste #{{ joke.id }}</strong>
+        </h6>
+        <p class="card-text mb-1">
+          <strong>Categoría:</strong> {{ joke.categoryName || 'N/A' }}
+        </p>
+        <p class="card-text mb-1">
+          <strong>Idioma:</strong> {{ joke.languageName || 'N/A' }}
+        </p>
+        <p class="card-text mb-1">
+          <strong>Tipo:</strong> {{ joke.typeName || 'N/A' }}
+        </p>
+        <p class="card-text mb-1">
+          <strong>Text1:</strong> {{ joke.text1 }}
+        </p>
+        <!-- Mostrar Text2 solo si el tipo no es Single -->
+        <p class="card-text mb-1" *ngIf="joke.typeName !== 'Single' && joke.text2 && joke.text2 !== 'null'">
+          <strong>Text2:</strong> {{ joke.text2 }}
+        </p>
+        <p class="card-text mb-1" *ngIf="joke.flagsNames?.length && joke.flagsNames.length > 0">
+          <strong>Flags:</strong> {{ joke.flagsNames.join(', ') }}
+        </p>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <div>
+          <a [routerLink]="['/jokes/detail', joke.id]" class="btn btn-info btn-sm me-1">Ver</a>
+          <a [routerLink]="['/jokes/edit', joke.id]" class="btn btn-warning btn-sm me-1">Editar</a>
+        </div>
+        <button (click)="deleteJoke(joke.id)" class="btn btn-danger btn-sm">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Controles de paginación -->
+<div class="d-flex justify-content-center align-items-center mb-3">
+  <!-- Ir a la primera página -->
+  <button class="btn btn-outline-primary me-2"
+          [disabled]="currentPage === 1"
+          (click)="goToPage(1)">
+    « Inicio
+  </button>
+
+  <!-- Página anterior -->
+  <button class="btn btn-outline-primary me-2"
+          [disabled]="currentPage === 1"
+          (click)="prevPage()">
+    ‹ Anterior
+  </button>
+
+  <!-- Páginas visibles -->
+  <ng-container *ngFor="let page of visiblePages">
+    <button class="btn btn-secondary me-1"
+            [class.active]="page === currentPage"
+            (click)="goToPage(page)">
+      {{ page }}
+    </button>
+  </ng-container>
+
+  <!-- Página siguiente -->
+  <button class="btn btn-outline-primary ms-2"
+          [disabled]="currentPage === totalPages"
+          (click)="nextPage()">
+    Siguiente ›
+  </button>
+
+  <!-- Ir a la última página -->
+  <button class="btn btn-outline-primary ms-2"
+          [disabled]="currentPage === totalPages"
+          (click)="goToPage(totalPages)">
+    Fin »
+  </button>
+</div>

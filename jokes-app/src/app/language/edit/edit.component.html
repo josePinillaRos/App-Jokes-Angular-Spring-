@@ -1,0 +1,39 @@
+<h2>Editar Idioma</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<form (ngSubmit)="updateLanguage()">
+  <div class="mb-3">
+    <label>Nombre del Idioma</label>
+    <input
+      type="text"
+      [(ngModel)]="languageForm.name"
+      name="name"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label>Código del Idioma</label>
+    <input
+      type="text"
+      [(ngModel)]="languageForm.code"
+      name="code"
+      class="form-control"
+      maxlength="2"
+      pattern="^[A-Za-z]{2}$"
+      required
+    />
+    <small class="form-text text-muted">
+      El código debe ser exactamente dos letras.
+    </small>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+  <button type="button" class="btn btn-secondary" [routerLink]="['/languages']">
+    Cancelar
+  </button>
+</form>

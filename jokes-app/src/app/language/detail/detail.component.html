@@ -1,0 +1,17 @@
+<h2>Detalle del Idioma</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<div *ngIf="language" class="language-detail-container">
+  <div class="language-detail-header">
+    <h3>Idioma: {{ language.name }}</h3>
+  </div>
+  <div class="language-detail-content">
+    <p><strong>ID:</strong> {{ language.id }}</p>
+    <p><strong>Nombre:</strong> {{ language.name }}</p>
+    <p><strong>Código:</strong> {{ language.code }}</p>
+  </div>
+  <button class="btn btn-secondary" (click)="goBack()">Volver</button>
+</div>

@@ -1,0 +1,23 @@
+<h2>Editar Flag</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<form (ngSubmit)="updateFlag()">
+  <div class="mb-3">
+    <label>Nombre de la Flag</label>
+    <input
+      type="text"
+      [(ngModel)]="flagForm.flag"
+      name="flag"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+  <button type="button" class="btn btn-secondary" [routerLink]="['/flags']">
+    Cancelar
+  </button>
+</form>

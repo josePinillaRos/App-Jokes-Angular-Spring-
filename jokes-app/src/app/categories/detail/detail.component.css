@@ -1,0 +1,57 @@
+/* Contenedor principal */
+.detail-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Cabecera de detalle */
+  .detail-header {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .detail-header h3 {
+    margin: 0;
+    color: #343a40;
+  }
+  
+  /* Contenido */
+  .detail-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #495057;
+  }
+  
+  /* Botón */
+  button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Alertas */
+  .alert {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  

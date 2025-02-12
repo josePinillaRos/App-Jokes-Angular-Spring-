@@ -1,0 +1,31 @@
+<h2>Crear Categoría</h2>
+
+<!-- Mensaje de error general -->
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<form (ngSubmit)="createCategory()" #categoryForm="ngForm">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre de la Categoría</label>
+    <input
+      type="text"
+      id="name"
+      [(ngModel)]="category.name"
+      name="name"
+      class="form-control"
+      required
+      #nameInput="ngModel"
+    />
+    
+    <!-- Mensaje de error cuando el campo está vacío y ha sido tocado -->
+    <div *ngIf="nameInput.invalid && nameInput.touched" class="text-danger">
+      El nombre de la categoría es obligatorio.
+    </div>
+  </div>
+
+  <!-- Deshabilitar el botón si el formulario es inválido -->
+  <button type="submit" class="btn btn-primary" [disabled]="categoryForm.invalid">
+    Guardar
+  </button>
+</form>

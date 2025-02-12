@@ -1,0 +1,14 @@
+.table {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .table th,
+  .table td {
+    text-align: center;
+  }
+  
+  .btn {
+    margin-right: 0.5rem;
+  }
+  

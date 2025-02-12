@@ -1,0 +1,47 @@
+.alert {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
+  .mb-3 {
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+  }
+  
+  button {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button.btn-secondary {
+    background-color: #6c757d;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  

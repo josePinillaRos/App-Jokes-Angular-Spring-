@@ -1,0 +1,38 @@
+<h2>Crear Nuevo Idioma</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<form (ngSubmit)="createLanguage()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre del Idioma</label>
+    <input
+      type="text"
+      id="name"
+      [(ngModel)]="languageForm.name"
+      name="name"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="code" class="form-label">Código del Idioma (2 letras)</label>
+    <input
+      type="text"
+      id="code"
+      [(ngModel)]="languageForm.code"
+      name="code"
+      class="form-control"
+      maxlength="2"
+      required
+    />
+    <small class="text-muted">El código debe ser exactamente dos letras (ej: ES, EN).</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Crear</button>
+  <button type="button" class="btn btn-secondary" [routerLink]="['/languages']">
+    Cancelar
+  </button>
+</form>

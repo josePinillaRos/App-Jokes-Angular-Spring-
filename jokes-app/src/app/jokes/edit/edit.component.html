@@ -1,0 +1,104 @@
+<h2>Editar Chiste</h2>
+
+<div *ngIf="errorMsg" class="alert alert-danger">
+  {{ errorMsg }}
+</div>
+
+<form (ngSubmit)="updateJoke()">
+  <!-- Categoría -->
+  <div class="mb-3">
+    <label for="categoryId" class="form-label">Categoría</label>
+    <select
+      id="categoryId"
+      [(ngModel)]="jokeDTO.categoryId"
+      name="categoryId"
+      class="form-select"
+    >
+      <option [ngValue]="null" disabled>Seleccione una categoría</option>
+      <option *ngFor="let cat of categories" [ngValue]="cat.id">
+        {{ cat.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Idioma -->
+  <div class="mb-3">
+    <label for="languageId" class="form-label">Idioma</label>
+    <select
+      id="languageId"
+      [(ngModel)]="jokeDTO.languageId"
+      name="languageId"
+      class="form-select"
+    >
+      <option [ngValue]="null" disabled>Seleccione un idioma</option>
+      <option *ngFor="let lang of languages" [ngValue]="lang.id">
+        {{ lang.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Tipo -->
+  <div class="mb-3">
+    <label for="typeId" class="form-label">Tipo</label>
+    <select
+      id="typeId"
+      [(ngModel)]="jokeDTO.typeId"
+      name="typeId"
+      class="form-select"
+      (change)="onTypeChange()"
+    >
+      <option [ngValue]="null" disabled>Seleccione un tipo</option>
+      <option *ngFor="let t of types" [ngValue]="t.id">
+        {{ t.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Flags -->
+  <div class="mb-3">
+    <label class="form-label">Flags</label>
+    <div>
+      <div class="form-check" *ngFor="let flag of flags">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          [id]="'flag-' + flag.id"
+          [checked]="flag.selected"
+          (change)="checkboxChanged($event, flag)"
+        />
+        <label class="form-check-label" [for]="'flag-' + flag.id">
+          {{ flag.name }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text1 -->
+  <div class="mb-3">
+    <label for="text1" class="form-label">Text1</label>
+    <input
+      id="text1"
+      type="text"
+      [(ngModel)]="jokeDTO.text1"
+      name="text1"
+      class="form-control"
+    />
+  </div>
+
+  <!-- Text2 solo si typeId=2 -->
+  <div class="mb-3" *ngIf="jokeDTO.typeId === 2">
+    <label for="text2" class="form-label">Text2</label>
+    <input
+      id="text2"
+      type="text"
+      [(ngModel)]="jokeDTO.text2"
+      name="text2"
+      class="form-control"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+  <button type="button" class="btn btn-secondary ms-2" [routerLink]="['/jokes']">
+    Cancelar
+  </button>
+</form>
